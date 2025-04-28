@@ -13,3 +13,15 @@ def char_count(text):
             char_dict[c] = 1
     return char_dict
 
+def sort_char_dict(char_dict):
+    list_of_char_dict = []
+    for key, value in char_dict.items():
+        list_of_char_dict.append({"char": key, "num": value})
+
+    # return list_of_char_dict
+
+    def sort_on(dict):
+        return dict["num"]
+    list_of_char_dict.sort(reverse=True, key=lambda dict: dict["num"])
+    return list_of_char_dict
+
