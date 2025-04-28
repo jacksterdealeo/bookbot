@@ -9,10 +9,23 @@ def get_book_text(filepath):
     return text
 
 def main():
-    text = get_book_text("books/frankenstein.txt")
+    book_location = "books/frankenstein.txt"
+    text = get_book_text(book_location)
     print(word_count(text), "words found in the document")
     count = char_count(text)
-    print(sort_char_dict(count))
+    char_dict_list = sort_char_dict(count)
+    
+    print(f"""============ BOOKBOT ============
+Analyzing book found at {book_location}...
+----------- Word Count ----------
+Found {word_count(text)} total words
+--------- Character Count -------""")
+
+    for char_dict in char_dict_list:
+        if char_dict["char"].isalpha():
+            print(f"{char_dict["char"]}: {char_dict["num"]}")
+
+    print("============= END ===============")
 
 main()
 
